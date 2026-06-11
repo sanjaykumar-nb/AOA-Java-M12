@@ -1,31 +1,75 @@
+# **EX 2A Assign Cookies using Greedy Algorithm**
 
-# EX 2A Assign Cookies using Greedy Algorithm. 
-## DATE:
-## AIM:
-To Write a Java program for the following Constraints.
-Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
+## **DATE: 15-04-2026**
 
-Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximise the number of your content children and output the maximum number.
+## **AIM:**
 
-## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
+To write a Java program that assigns cookies to children using a greedy strategy.
+Each child has a greed factor **g[i]**, and each cookie has a size **s[j]**.
+A child is content if **s[j] ≥ g[i]**, and each child can receive at most one cookie.
+The goal is to maximise the number of content children.
 
-## Program:
-```
+---
+
+## **Algorithm**
+
+1. Read the number of children and their greed values.
+2. Read the number of cookies and their sizes.
+3. Sort both arrays in ascending order.
+4. Use two pointers to match the smallest available cookie to the least greedy child.
+5. Count each successful assignment and print the total.
+
+---
+
+## **Program:**
+
+```java
 /*
-Program to implement Reverse a String
-Developed by: 
-Register Number:  
+Program to implement Assign Cookies using Greedy Algorithm
+Developed by: SANJAYKUMAR N B
+Register Number: 212223230189
 */
+import java.util.*;
+
+public class AssignCookies {
+    
+    public static int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int i = 0, j = 0;
+
+        while(i < g.length && j < s.length){
+            if(s[j] >= g[i]) i++;
+            j++;
+        }
+        return i;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] g = new int[n];
+        for (int i = 0; i < n; i++) g[i] = sc.nextInt();
+
+        int m = sc.nextInt();
+        int[] s = new int[m];
+        for (int i = 0; i < m; i++) s[i] = sc.nextInt();
+
+        System.out.println(findContentChildren(g, s));
+    }
+}
 ```
 
-## Output:
+---
+
+## **Output:**
+
+<img width="1031" height="402" alt="image" src="https://github.com/user-attachments/assets/7d30fdae-b8a4-4b5e-9de6-f28dded1bfae" />
 
 
 
-## Result:
-The program successfully print all the numbers from 1 to N. 
+## **Result:**
+
+The program was successfully implemented and the expected output was verified.
+
+---
